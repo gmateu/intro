@@ -1,3 +1,12 @@
+#prova{
+    width:50%;
+    height:200px;
+    background:url(../img/f0421.gif) no-repeat;
+    background-position:top right;
+    border:1px solid black;
+
+}
+
 body { font-size: 1em; }
 h1 { font-size: 100%; }
 h2 { font-size: 150%; }
@@ -13,3 +22,5 @@ a { font-size: 12pt }
  
 /* Los elementos <span> deben tener un tamaño de letra de 1 pica */
 span { font-size: 1pc }
+
+
