@@ -1,0 +1,50 @@
+*{
+    margin:0px;
+    padding:0px;
+
+}
+
+.contendor{
+    width:303px;
+    background:pink;
+}
+.contendor2{
+    width:100%;
+    background:pink;
+}
+
+.capsa{
+    border:solid 1px black;
+    width:150px;
+    height:150px;
+    background:#baedad;
+
+}
+
+#caja1{
+    float:right;
+    height:300px;
+}
+
+.left{
+    float:left;
+
+}
+
+#caja5{
+    visibility:hidden;
+}
+
+.clear{
+    clear:left;
+    display:hidden;
+}
+
+#zindex{
+    width:800px;
+    height:600px;
+    background:pink;
+    border:1px solid;
+
+
+}
