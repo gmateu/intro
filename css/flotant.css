@@ -37,14 +37,45 @@
 
 .clear{
     clear:left;
-    display:hidden;
+
 }
 
 #zindex{
-    width:800px;
-    height:600px;
+    width:50%;
+    height:30%;
     background:pink;
-    border:1px solid;
 
+}
+
+
+.zindex{
+    width:300px;
+    height:250px;
+    border:1px solid black;
+    background:#E724C4;
+
+}
+
+p:hover { 
+  z-index: 3; 
+}
+
+
+.capsa1{
+    position:absolute;
+    top:165%;
+    left:16%;
+
+}
+.capsa2{
+    position:absolute;
+    top:195%;
+    left:26%;
+
+}
+.capsa3{
+    position:absolute;
+    top:135%;
+    left:6%;
 
 }
