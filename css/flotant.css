@@ -56,15 +56,15 @@
 
 }
 
-p:hover { 
-  z-index: 3; 
+.zindex:hover{
+    z-index:3;
 }
-
 
 .capsa1{
     position:absolute;
     top:165%;
     left:16%;
+    z-index:2;
 
 }
 .capsa2{
@@ -79,3 +79,4 @@ p:hover {
     left:6%;
 
 }
+
