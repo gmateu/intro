@@ -18,7 +18,7 @@
         $llinatge1=$_POST['llinatge1'];
         $llinatge2=$_POST['llinatge2'];
         
-        $dbc = mysqli_connect('172.30.10.193', 'guillem', 'guillem', 'sirius_db')
+        $dbc = mysqli_connect('172.30.10.172', 'guillem', 'guillem', 'sirius_db')
         or die('Error connecting to MySQL server.');
         $query = "insert into users (usuari,password,nom,llinatge1,llinatge2) 
                     values ('$usuari','$password','$nom','$llinatge1','$llinatge2');";
