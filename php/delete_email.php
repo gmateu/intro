@@ -14,6 +14,12 @@
     $dbc = mysqli_connect('172.30.10.172', 'guillem', 'guillem', 'elvis_store')
         or die('Error connecting to MySQL server.');
         
+        
+    if (isset($_POST['submit'])){
+        echo "<h1>puc esborrar clients</h1>";
+        
+        }
+        
     $sql="SELECT * FROM email_list";
     $result = mysqli_query($dbc, $sql)
     or die('Error querying database.');
@@ -23,12 +29,17 @@
     <h1>llistat clients</h1>
     
     
+    <form action="delete_email.php" method="POST">
+    
     <?php
         
     while($row = mysqli_fetch_array($result)){
-            echo $row['id']." ".$row['first_name']." ".$row['last_name']." ".$row['email']."<br>";
-        
+        echo '<input type="checkbox" value="' . $row['id'] . '" name="todelete[]" />';
+        echo $row['first_name']." ".$row['last_name']." ".$row['email']."<br>";
     }
+    ?>
+        <input type="submit" name="submit" value="esborrar seleccionats"/>
+    </form>
      
    
    
@@ -40,7 +51,7 @@
    
    
    
-    ?>
+    
 	
 </body>
 
