@@ -17,6 +17,12 @@
         
     if (isset($_POST['submit'])){
         echo "<h1>puc esborrar clients</h1>";
+        foreach ($_POST['todelete'] as $delete_id){
+             echo "esborrar client $delete_id<br>";
+             $sql="DELETE FROM email_list WHERE id=$delete_id";
+             mysqli_query($dbc, $sql)
+             or die('Error querying database.');
+            }
         
         }
         
