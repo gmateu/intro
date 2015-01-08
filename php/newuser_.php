@@ -11,6 +11,11 @@
 <body>
     
     <?php
+    $usuari = "";
+    $password = "";
+    $nom = "";
+    $llinatge1 = "";
+    $llinatge2 = "";
         if (isset($_POST['submit'])) {
         $usuari = $_POST['usuari'];
         $password = $_POST['password'];
@@ -38,6 +43,11 @@
         $result = mysqli_query($dbc, $query)
         or die('Error querying database.');
         mysqli_close($dbc);
+        $usuari = "";
+        $password = "";
+        $nom = "";
+        $llinatge1 = "";
+        $llinatge2 = "";
             
             }
     }
@@ -48,15 +58,15 @@
 	<h1>Alta nou usuari</h1>
     <form method="post" action="newuser_.php">
         <label for="usuari">Usuari:</label>
-        <input type="text" id="usuari" name="usuari" /><br />
+        <input type="text" id="usuari" name="usuari" value="<?=$usuari?>" /><br />
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" /><br />
+        <input type="password" id="password" name="password" value="<?=$password?>" /><br />
         <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom" /><br />
+        <input type="text" id="nom" name="nom" value="<?=$nom?>" /><br />
         <label for="llinatge1">llinatge1:</label>
-        <input type="text" id="llinatge1" name="llinatge1" /><br />
+        <input type="text" id="llinatge1" name="llinatge1" value="<?=$llinatge1?>" /><br />
         <label for="llinatge2">llinatge2:</label>
-        <input type="text" id="llinatge2" name="llinatge2" /><br />
+        <input type="text" id="llinatge2" name="llinatge2" value="<?=$llinatge2?>" /><br />
         
         <input type="submit" value="Desar" name="submit" />
     </form>
