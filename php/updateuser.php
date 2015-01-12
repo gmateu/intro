@@ -10,24 +10,43 @@
 
 <body>
     <?php
-    $id=$_GET['id'];
-    echo "id: $id<br>";
-    $dbc = mysqli_connect('172.16.82.211', 'guillem', 'guillem', 'sirius_db')
-        or die('Error connecting to MySQL server.');
-    $sql="select usuari,nom,llinatge1,llinatge2 from users where id=$id";
-    $result = mysqli_query($dbc, $sql) or die('Error querying database.');
-    $row = mysqli_fetch_array($result);
+    $usuari = "";
+    $password = "";
+    $nom = "";
+    $llinatge1 = "";
+    $llinatge2 = "";
+    $id="";
+    if (isset($_POST['submit'])) {
+        //hem de fer update
+        //recollim els valors amb $_POST
+        
+        //CONSTRUIM UPDATE
+        $sql="UPDATE users SET usuari='$usuari',nom='$nom',llinatge1='$llinatge1',
+        llinatge2='$llinatge2',password='$password' 
+        where id=$id";
+        echo "$sql <br>";
+    }else{
     
-    $usuari=$row['usuari'];
-    $nom=$row['nom'];
-    $llinatge1=$row['llinatge1'];
-    $llinatge2=$row['llinatge2'];
-    
+        //hem fet clic a un usuari i el volem editar
+        $id=$_GET['id'];
+        echo "id: $id<br>";
+        $dbc = mysqli_connect('172.16.82.211', 'guillem', 'guillem', 'sirius_db')
+            or die('Error connecting to MySQL server.');
+        $sql="select usuari,nom,llinatge1,llinatge2 from users where id=$id";
+        $result = mysqli_query($dbc, $sql) or die('Error querying database.');
+        $row = mysqli_fetch_array($result);
+        
+        $usuari=$row['usuari'];
+        $nom=$row['nom'];
+        $llinatge1=$row['llinatge1'];
+        $llinatge2=$row['llinatge2'];
+    }
     
     ?>
     
     <h1>Editar usuari</h1>
     <form method="post" action="updateuser.php">
+        <input type="text" name="id" value="<?= $id?>" />
         <label for="usuari">Usuari:</label>
         <input type="text" id="usuari" name="usuari" value="<?=$usuari?>" /><br />
         <label for="password">Password:</label>
