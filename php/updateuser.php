@@ -56,7 +56,7 @@
     
     <h1>Editar usuari</h1>
     <form method="post" action="updateuser.php">
-        <input type="text" name="id" value="<?= $id?>" />
+        <input type="hidden" name="id" value="<?= $id?>" />
         <label for="usuari">Usuari:</label>
         <input type="text" id="usuari" name="usuari" value="<?=$usuari?>" /><br />
         <label for="password">Password:</label>
