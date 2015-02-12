@@ -24,6 +24,22 @@
             document.getElementById("pinchable").onclick = opera;
             document.getElementById("msg").onclick=msg;
             document.getElementById("nom").onkeyup=tecla;
+            document.getElementById("area").onmouseover=ratoli;
+        }
+        
+        function ratoli(elEvento){
+            var evento=elEvento || window.event;
+            var coordenadaX = evento.clientX;
+            var coordenadaY = evento.clientY;
+            var div=document.getElementById("area");
+            //AGAFAR L'EMENT P, QUE HI PUGUI HAVER I ELIMINAR-LO
+            var p=div.getElementsByTagName("p");
+            if (p) div.removeChild(p[0]);
+            
+            var text=document.createTextNode("x:"+coordenadaX+" y:"+coordenadaY);
+            var p=document.createElement("p");
+            p.appendChild(text);
+            div.appendChild(p);
         }
         
         function opera(){
@@ -51,6 +67,7 @@
     nom:<input type="text" id="nom" value=""/>
     <div id="area">
         <h1>Àrea</h1>
+        <p></p>
     </div>
 	
 </body>
