@@ -8,7 +8,7 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<meta name="generator" content="Geany 1.23.1" />
     <script>
-        function dni(valor){
+        function dniValid(valor){
             //retornar vertader o fals en funcio de si el dni és correcte
             //trobareu el codi al punt 7.3 de la documentació
             
@@ -21,7 +21,7 @@
                 var form_validat=false;
                 if(nom.value==""){
                         alert("has d'introduir un nom");
-                }else if(!dni(dni.value)){
+                }else if(!dniValid(dni.value)){
                         alert("has d'introduir un dni correcte");
                 }else{
                     form_validat=true;
