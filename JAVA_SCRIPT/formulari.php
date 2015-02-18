@@ -11,9 +11,12 @@
         function valida(){
                 var form=document.getElementById("formulari");
                 var nom=document.getElementById("nom");
+                var dni=document.getElementById("dni");
                 var form_validat=false;
                 if(nom.value==""){
                         alert("has d'introduir un nom");
+                }else if(dni.value==""){
+                        alert("has d'introduir un dni");
                 }else{
                     form_validat=true;
                 }
@@ -26,6 +29,7 @@
 <body>
     <form action="formulari.php" id="formulari">
         <label>Nom:</label><input type="text" value="" id="nom" name="nom"/><br/>
+        <label>Dni:</label><input type="text" value="" id="dni" name="dni"/><br/>
         <input type="button" onclick="valida()" value="desa"/>
     </form>
 </body>
