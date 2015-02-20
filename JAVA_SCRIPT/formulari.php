@@ -27,8 +27,18 @@
         
         function dataValid(valor){
                 //si valor és una data correcta retornam true, sino false
-                
+                //7.3.5. Validar una fecha
+                var data=valor.split("/");
+                var ano = data[2];
+                var mes = data[1]-1;
+                var dia = data[0]-1;
+                 
+                valor = new Date(ano, mes, dia);
+                if ( dia!=valor.getDay() || mes!=valor.getMonth() || ano!=valor.getFullYear()){
+                    return false;
+                }
         }
+        
         function valida(){
                 var form=document.getElementById("formulari");
                 var nom=document.getElementById("nom");
@@ -54,7 +64,7 @@
     <form action="formulari.php" id="formulari">
         <label>Nom:</label><input type="text" value="" id="nom" name="nom"/><br/>
         <label>Dni:</label><input type="text" value="" id="dni" name="dni"/><br/>
-        <label>Data naixament:</label>
+        <label>Data naixament(dd/mm/yyyy):</label>
         <input type="text" value="" id="dataNac" name="dataNac"/><br/>
         <input type="button" onclick="valida()" value="desa"/>
     </form>
