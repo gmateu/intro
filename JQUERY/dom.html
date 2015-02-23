@@ -11,6 +11,15 @@
     <script src="js/jquery-2.1.3.min.js"></script>
     <script src="js/jquery-ui-1.11.3.custom/jquery-ui.js"></script>
     <script>
+        var data={"persones": {
+        "items": [
+            {"id": 1, "nom": "GUILLEM","llinatges":"MATEU MASCARÓ"},
+            {"id": 123, "nom": "MARIA","llinatges":"MATEU PLANAS"},
+            {"id": 5, "nom": "TONI","llinatges":"MATEU PLANAS"},
+            {"id": 55, "nom": "CARLA","llinatges":"MATEU PLANAS"},
+        ]
+    }};
+
         $( document ).ready(function() {
             var divInfo=$("#informacio");
             
@@ -23,7 +32,16 @@
             table.append(tr);//capçaleres
             
             //primer nom
-            
+            for (i in data.persones.items){
+                var tr=$("<tr></tr>");
+                //així afegim el nom
+                var td=$("<td>"+data.persones.items[i].nom+"</td>");
+                tr.append(td);
+                
+                //d'una forma semblant afegim llinatges
+                
+                table.append(tr);
+            }
             
             divInfo.append(table);
             
