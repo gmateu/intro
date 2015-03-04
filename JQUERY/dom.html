@@ -12,16 +12,15 @@
     <script src="js/jquery-2.1.3.min.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <script>
-        var data={"persones": {
-        "items": [
-            {"id": 1, "nom": "GUILLEM","llinatges":"MATEU MASCARÓ"},
-            {"id": 123, "nom": "MARIA","llinatges":"MATEU PLANAS"},
-            {"id": 5, "nom": "TONI","llinatges":"MATEU PLANAS"},
-            {"id": 55, "nom": "CARLA","llinatges":"MATEU PLANAS"},
-        ]
-    }};
 
         $( document ).ready(function() {
+            $( "#target" ).click(function() {
+              carregaDades();
+            });
+            
+        });
+        
+        function ompleTaula(data){
             var divInfo=$("#informacio");
             
             var table=$("<table id='taula' class='display' cellspacing='0'></table>");
@@ -58,12 +57,21 @@
                 "ordering": true,
                 "info":     false
             } );
-            
-        });
+        }
+        
+        function carregaDades(){
+                $.ajax({
+                  url: "llistatusuaris_json.php",
+                  context: document.body
+                }).done(function(data) {
+                  ompleTaula(data);
+                });
+        }
     </script>
 </head>
 
 <body>
+    <input id="target" type="button" value="carrega"/><br>
     <div id="informacio"></div>
 	
 </body>

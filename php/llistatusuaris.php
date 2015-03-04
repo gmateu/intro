@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    $dbc = mysqli_connect('172.16.82.211', 'guillem', 'guillem', 'sirius_db')
+    $dbc = mysqli_connect('172.30.10.172', 'guillem', 'guillem', 'sirius_db')
         or die('Error connecting to MySQL server.');
         
    if (isset($_POST['submit'])){
