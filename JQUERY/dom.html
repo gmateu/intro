@@ -26,8 +26,7 @@
               context: document.body
             }).done(function(data) {
               var data=JSON.parse(data);
-              alert(data);
-              //ompleTaula(eval(data));
+              ompleTaula(data);
             });
         }
         
@@ -47,14 +46,14 @@
             
             //tbody
             var tbody=$("<tbody></tbody>");
-            for (i in data.persones.items){
+            for (i in data){
                 var tr=$("<tr></tr>");
                 //així afegim el nom
-                var td=$("<td>"+data.persones.items[i].nom+"</td>");
+                var td=$("<td>"+data[i].nom+"</td>");
                 tr.append(td);
                 
                 //d'una forma semblant afegim llinatges
-                var td=$("<td>"+data.persones.items[i].llinatges+"</td>");
+                var td=$("<td>"+data[i].llinatge1+"</td>");
                 tr.append(td);
                 
                 tbody.append(tr);

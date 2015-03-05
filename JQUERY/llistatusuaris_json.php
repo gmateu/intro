@@ -1,5 +1,4 @@
     <?php
-    //header('Content-Type: application/json');
     $dbc = mysqli_connect('172.30.10.172', 'guillem', 'guillem', 'sirius_db')
         or die('Error connecting to MySQL server.');
         
