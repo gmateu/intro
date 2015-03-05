@@ -20,6 +20,17 @@
             
         });
         
+        function carregaDades(){
+            $.ajax({
+              url: "llistatusuaris_json.php",
+              context: document.body
+            }).done(function(data) {
+              var data=JSON.parse(data);
+              alert(data);
+              //ompleTaula(eval(data));
+            });
+        }
+        
         function ompleTaula(data){
             var divInfo=$("#informacio");
             
@@ -59,14 +70,7 @@
             } );
         }
         
-        function carregaDades(){
-                $.ajax({
-                  url: "llistatusuaris_json.php",
-                  context: document.body
-                }).done(function(data) {
-                  ompleTaula(data);
-                });
-        }
+
     </script>
 </head>
 
