@@ -1,0 +1,63 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Exemple LOGIN</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.23.1" />
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script>
+        var usuari="";
+        $( document ).ready(function() {
+            $("#login_correcte").hide();//oculta el div
+            $("#login_incorrecte").hide();//oculta el div
+            $("#loginBTN").click(function(){
+                usuari=document.getElementById("usuari").value;//JAVASCRIPT
+                password=$("#password")[0].value;//JQUERY
+                if(usuari=="" || password==""){
+                    alert("has d'introduir valors");
+                }else{
+                    //PETICIO AJAX
+                    $.ajax({
+                      url: "login_json.php",
+                      data:{usuari:usuari,password:password}
+                    }).done(function(data) {
+                      var data=JSON.parse(data);
+                      if(data[0]=='s'){
+                        $("#dades").hide();
+                        $("#login_correcte").show();
+                        $("#login_incorrecte").hide();
+                      }else{
+                        $("#dades").show();
+                        $("#login_correcte").hide();
+                        $("#login_incorrecte").show();
+                      }
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>    
+    <div id="login">
+        <div id="dades">
+            Usuari:<input type="text" id="usuari" name="usuari" value=""/><br/>
+            Password:<input type="password" id="password" name="password" value=""/><br/>
+            <input type="button" id="loginBTN" value="login"/>
+        </div>
+        <div id="login_correcte">
+            <p>Login correcte</p>
+        </div>
+        <div id="login_incorrecte">
+            <p>Login incorrecte</p>
+        </div>
+    </div>
+    
+	
+</body>
+
+</html>

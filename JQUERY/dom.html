@@ -20,38 +20,10 @@
               carregaDades();
             });
             
-            $("#login_correcte").toggle();
-            $("#login_incorrecte").toggle();
+            $("#login_correcte").hide();//oculta el div
+            $("#login_incorrecte").hide();//oculta el div
             $("#loginBTN").click(function(){
-                    usuari=$("#usuari")[0].value;
-                    var password=$("#password")[0].value;
-                    if (usuari=="" || password==""){
-                        alert("has d'introduir valors")
-                    }else{
-                        //petició ajax
-                        $.ajax({
-                          url: "login_json.php",
-                          context: document.body,
-                          type:'GET',
-                          data:{usuari:usuari,password:password},
-                        }).done(function(data) {
-                            var data=JSON.parse(data);
-                            if(data[0]=="s"){
-                                $("#login_incorrecte").hide();
-                                $("#login_correcte").show();
-                                $("#dades").hide();
-                                $("#login_correcte").empty();
-                                p=$("<p></p>");
-                                p.append("Benvingut "+data[1]+" "+data[2]+" "+data[3]);
-                                $("#login_correcte").append(p);
-                            }else{
-                                $("#login_incorrecte").show();
-                                $("#login_correcte").hide();
-                                $("#dades").show();
-                            }
-                        });
-                        
-                    }
+                alert("botó clicat");
             });
             
         });
